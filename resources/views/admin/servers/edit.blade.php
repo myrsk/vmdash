@@ -5,26 +5,16 @@
 @stop
 
 @section('content')
-    {!! Form::model($item, [
-        'action' => ['ServerController@update', $item->id],
-        'method' => 'put', 
-        'files' => true
-      ])
-    !!}
+  {!! Form::model($item, [
+      'action' => ['ServerController@update', $item->id],
+      'method' => 'put', 
+      'files' => true
+    ])
+  !!}
 
-    @include('admin.servers.form')
+  @include('admin.servers.form')
 
-    <button type="submit" class="btn btn-dark">{{ trans('app.edit_button') }}</button>
-    
-  {!! Form::close() !!}
+  <button type="submit" class="btn btn-dark">{{ trans('app.edit_button') }}</button>
   
-  @section('footer_scripts')
-  <script>
-    function setSelectValue (id, val) {
-      document.getElementById(id).value = val;
-  }
-  setSelectValue('location', '{{$item->location}}');
-  setSelectValue('type', '{{$item->type}}');
-  </script>
+  {!! Form::close() !!}
 @stop
-@endsection
