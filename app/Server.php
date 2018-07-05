@@ -20,7 +20,7 @@ class Server extends Model
             'ipv4'    => "required",
             'sshport'    => "required",
             'provider'    => "required",
-            'provider_url'    => "url",
+            'provider_url'    => "nullable|url",
             'location'    => "required",
             
         ];
@@ -36,7 +36,7 @@ class Server extends Model
             'ipv4'    => "required",
             'sshport'    => "required",
             'provider'    => "required",
-            'provider_url'    => "url",
+            'provider_url'    => "nullable|url",
             'location'    => "required",
             
         ]);

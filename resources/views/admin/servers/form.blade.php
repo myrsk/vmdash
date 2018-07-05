@@ -7,7 +7,7 @@
           <option value="">Please select ...</option>
         </select>
       </div>
-
+      
       <div id="fields"></div>
     </div>  
   </div>
@@ -74,6 +74,13 @@
       $("#instructions .card-body").html(config.instructions.body);
 
       $("#fields").html("");
+
+      @isset($item)
+      var serverInfo = {!! $item !!};
+      $("#fields").append('<input type="hidden" id="type_hidden" name="type" value="" />');
+      $("#type_hidden").val(serverInfo['type']);
+      @endisset
+
       $.each(config.fields, function (name, options) {
         var input = "<div class='form-group'><label for='" + name + "'>" + options.label + (options.required ? ' <span class="text-danger">*</span>' : '') + "</label>";
 
