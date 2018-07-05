@@ -15,6 +15,7 @@ Will be added soon.
 |Scaleway (Paris)|✔|✔|✔| | | | | | | |
 
 ## Roadmap (future releases)
+- Auto update functionality vmDash from Github releases
 - Server monitoring plugin (reports uptime, and state of machine and notifies user)
 - Multi-user environment
 - Graphs from supported providers
@@ -43,6 +44,7 @@ npm run production                 # Compile assets for production
 ##### Default Login Credentials
 Username: test@example.com      
 Password: 123456
+
 _**Note**: Please change your email and password as soon as you login_
 
 ##### HTTPS Reminder
@@ -64,7 +66,7 @@ Visit the dashboard at [localhost:8000/](http://localhost:8000/)
 * [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar) : for debugging
 * [rinvex/country](https://github.com/rinvex/country) : lightweight package for country data
 * [thomaswelton/laravel-gravatar](https://github.com/thomaswelton/laravel-gravatar) : gravatar package used for logged-in user's profile picture
-* [Guzzle](https://github.com/guzzle/guzzle) : for api calls
+* [Guzzle](https://github.com/guzzle/guzzle) : for API calls
 * [PHPSecLib](https://github.com/phpseclib/phpseclib) : for SSH calls
 
 #### JS plugins:
