@@ -9,11 +9,6 @@
             "label": "Provider Server ID",
             "required": true
         },
-        "apiurl": {
-            "type": "text",
-            "label": "Provider API URL",
-            "required": true
-        },
         "apikey": {
             "type": "text",
             "label": "Provider API Key",
@@ -46,12 +41,12 @@
         },
         "provider": {
             "type": "text",
-            "label": "Provider",
+            "label": "Provider's Name",
             "required": true
         },
         "provider_url": {
             "type": "text",
-            "label": "Provider's URL",
+            "label": "Provider's Website URL",
             "required": false
         },
         "location": {

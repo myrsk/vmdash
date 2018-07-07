@@ -23,10 +23,9 @@ abstract class Provider {
             $result = json_decode($result, true);
     
         }
-        catch (RequestException $e)
+        catch (BadResponseException $e)
         {
-            $result = $e->getResponse()->getBody()->getContents();
-            $result = json_decode($result, true);
+            $result = static::handleErrors($e);
         }
         
         return $result;
@@ -44,5 +43,6 @@ abstract class Provider {
     abstract public static function removeIso($id);
     abstract public static function enableRescue($id);
     abstract public static function disableRescue($id);
+    abstract public static function handleErrors($e);
 
 }

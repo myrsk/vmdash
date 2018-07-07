@@ -1,7 +1,7 @@
 {
     "instructions": {
-        "title": "Adding a Vultr Server",
-        "body": "<h5 class='card-title'>Follow the steps below:</h5><p><ul><li>Login to the Vultr Dashboard</li><li>Click on your name in the upper right corner</li><li>Click on API</li><hr><li>Click on the 'Enable API' button</li><li>Use the API Token for the <b>Provider API Key</b> field</li><li>Make sure you allow your IP (where vmDash is hosted) to have access</li><hr><li>Select 'Servers' from the left menu</li><li>Click on your server's name</li><li>Check the URL in the browser, you will find an ID (e.g. SUBID=13000089)</li><li>Use this ID for the <b>Provider Server ID</b> field (without the SUBID=)</li></ul></p>"
+        "title": "Adding a Hetzner Server",
+        "body": "<h5 class='card-title'>Follow the steps below:</h5><p class='card-text'><p><ul><li>Login to the Hetzner Cloud Console</li><li>Select a project</li><hr><li>Select a server</li><li>On the overview page you will find an ID (e.g. #810003)</li><li>Use this ID for the <b>Provider Server ID</b> field (without the #)</li><hr><li>Select 'Access' from the left menu</li><li>Select 'API Tokens' from the top menu</li><li>Generate an API Token</li><li>Use the API Token for the <b>Provider API Key</b> field</li></ul></p>"
     },
     "fields": {
         "apiserverid": {
@@ -36,12 +36,12 @@
         },
         "provider": {
             "type": "text",
-            "label": "Provider",
+            "label": "Provider's Name",
             "required": true
         },
         "provider_url": {
             "type": "text",
-            "label": "Provider's URL",
+            "label": "Provider's Website URL",
             "required": false
         },
         "location": {

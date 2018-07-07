@@ -191,4 +191,10 @@ class Vultr extends Provider {
         return false;
     }
 
+    public static function handleErrors($e) {
+        
+        $result['error'] = $e->getResponse()->getBody()->getContents();
+        return $result;
+    }
+
 }

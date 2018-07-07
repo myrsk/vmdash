@@ -135,8 +135,8 @@ class ServerController extends Controller
     public function poweroff(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->powerOff($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::powerOff($request->id);
 
         return Response::json(array(
             'success' => (isset($result['error'])) ? 'false' : 'true',
@@ -350,10 +350,9 @@ class ServerController extends Controller
     }
 
     public function getProviderLibrary($provider) {
-        // temp until removing API from types
-        $provider = substr($provider, 0, -3);
-        
+
         return '\\App\\Libraries\\API\\' . $provider;
+        
     }
 }
 
