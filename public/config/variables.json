@@ -1,8 +1,9 @@
 {
     "providers": {
-        "HetznerAPI": "Hetzner Cloud",
-        "VultrAPI": "Vultr",
-        "ScalewayAPI": "Scaleway (Paris)"
+        "Hetzner": "Hetzner Cloud",
+        "Vultr": "Vultr",
+        "ScalewayPAR": "Scaleway (Paris)",
+        "ScalewayAMS": "Scaleway (Amsterdam)"
     },
     "countries": {
         "BD": "Bangladesh",
