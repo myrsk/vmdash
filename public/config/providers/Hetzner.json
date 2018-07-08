@@ -1,4 +1,8 @@
 {
+    "details": {
+        "name": "Hetzner",
+        "website": "https://www.hetzner.com/"
+    },
     "instructions": {
         "title": "Adding a Hetzner Server",
         "body": "<h5 class='card-title'>Follow the steps below:</h5><p class='card-text'><p><ul><li>Login to the Hetzner Cloud Console</li><li>Select a project</li><hr><li>Select a server</li><li>On the overview page you will find an ID (e.g. #810003)</li><li>Use this ID for the <b>Provider Server ID</b> field (without the #)</li><hr><li>Select 'Access' from the left menu</li><li>Select 'API Tokens' from the top menu</li><li>Generate an API Token</li><li>Use the API Token for the <b>Provider API Key</b> field</li></ul></p>"
