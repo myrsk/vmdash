@@ -12,7 +12,7 @@ use Validator;
 class InstallController extends Controller
 {
     public function __construct() {
-        if (file_exists(base_path() . '/install.lock') && Route::getCurrentRoute()->getActionMethod() !== 'showLocked')
+        if (file_exists(base_path('install.lock')) && Route::getCurrentRoute()->getActionMethod() !== 'getLocked')
             return redirect('install/locked')->send();
     }
 
@@ -115,11 +115,14 @@ class InstallController extends Controller
             'password' => $request->input('password'),
             'role' => 10
         ]);
-
+        
         return redirect()->route('install.getSuccess');
     }
 
     public function getSuccess() {
+        // Create new lock file after installation is completed.
+        touch(base_path('install.lock'));
+
         return view('install.success');
     }
 
