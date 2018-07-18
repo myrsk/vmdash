@@ -44,4 +44,17 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::group(['prefix' => 'install'], function() {
+    Route::get('/', 'InstallController@index');
+});
 
+Route::group(['prefix' => 'install', 'as' => 'install.'], function () {
+    Route::get('/', 'InstallController@getRequirementsChecker')->name('getRequirements');
+    Route::post('/', 'InstallController@postRequirementsChecker')->name('postRequirements');
+    Route::get('/database', 'InstallController@getDatabaseSetup')->name('getDatabase');
+    Route::post('/database', 'InstallController@postDatabaseSetup')->name('postDatabase');
+    Route::get('/admin', 'InstallController@getCreateAdministrator')->name('getAdministrator');
+    Route::post('/admin', 'InstallController@postCreateAdministrator')->name('postAdministrator');
+    Route::get('/success', 'InstallController@getSuccess')->name('getSuccess');
+    Route::get('/locked', 'InstallController@getLocked')->name('getLocked');
+});
