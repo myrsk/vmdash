@@ -3,7 +3,8 @@
         "Hetzner": "Hetzner Cloud",
         "Vultr": "Vultr",
         "ScalewayPAR": "Scaleway (Paris)",
-        "ScalewayAMS": "Scaleway (Amsterdam)"
+        "ScalewayAMS": "Scaleway (Amsterdam)",
+        "DigitalOcean": "Digital Ocean"
     },
     "countries": {
         "BD": "Bangladesh",
