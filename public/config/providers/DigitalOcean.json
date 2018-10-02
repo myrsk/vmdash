@@ -1,0 +1,62 @@
+{
+  "details": {
+    "name": "Digital Ocean",
+    "website": "https://www.digitalocean.com/"
+  },
+  "instructions": {
+    "title": "Adding a DO Server",
+    "body": "<h5 class='card-title'>Follow the steps below:</h5><p><ul><li>Login to the DO Dashboard</li><li>Click on the API link on the left</li><hr><li>Click on the 'Generate New Token' button</li><li>Use the API Token for the <b>Provider API Key</b> field</li><li>Enter some name recognizable to you and generate the tokens.</li><hr><li>Select 'Droplets' in the left menu</li><li>Click on your server's name</li><li>Check the URL in the browser, you will find an ID (e.g. droplets/13000089/graphs?i=xxxxx)</li><li>Use this ID for the <b>Provider Server ID</b> field (only the numeric ID)</li></ul></p>"
+  },
+  "fields": {
+    "apiserverid": {
+      "type": "text",
+      "label": "Provider Server ID",
+      "required": true
+    },
+    "apikey": {
+      "type": "text",
+      "label": "Provider API Key",
+      "required": true
+    },
+    "name": {
+      "type": "text",
+      "label": "Friendly Name",
+      "required": true
+    },
+    "hostname": {
+      "type": "text",
+      "label": "Hostname",
+      "required": true
+    },
+    "ipv4": {
+      "type": "text",
+      "label": "IPv4 Address",
+      "required": true
+    },
+    "sshport": {
+      "type": "text",
+      "label": "SSH Port",
+      "required": true
+    },
+    "provider": {
+      "type": "text",
+      "label": "Provider's Name",
+      "required": true
+    },
+    "provider_url": {
+      "type": "text",
+      "label": "Provider's Website URL",
+      "required": false
+    },
+    "location": {
+      "type": "countries",
+      "label": "Location",
+      "required": true
+    },
+    "sshkey": {
+      "type": "textarea",
+      "label": "SSH Private Key",
+      "required": false
+    }
+  }
+}
