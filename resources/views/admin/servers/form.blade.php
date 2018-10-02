@@ -48,7 +48,7 @@
         hideInstructions();
     });
 
-    // Checks if the form is used for editing or creating a server.
+    // Checks if the form is used for editing and loads the provider.
     @isset($item)
       showInstructions();
       var serverInfo = {!! $item !!};
@@ -68,6 +68,15 @@
     $("#instructions").show();
   }
 
+  function autofillProvider(value, field = null) {
+    if (field)
+      $("#" + field).val(value);
+    else {
+      $("#provider").val(value.name);
+      $("#provider_url").val(value.website);
+    }
+  }
+
   function loadProvider(provider) {
     $.getJSON("/config/providers/" + (!provider.type ? provider : provider.type) + ".json", function (config) {
       $("#instructions .title").html(config.instructions.title);
@@ -75,11 +84,9 @@
 
       $("#fields").html("");
 
-      @isset($item)
-      var serverInfo = {!! $item !!};
-      $("#fields").append('<input type="hidden" id="type_hidden" name="type" value="" />');
-      $("#type_hidden").val(serverInfo['type']);
-      @endisset
+      if (provider.type) {
+        $("#fields").append("<input type='hidden' id='type_hidden' name='type' value='" + provider.type + "' />");
+      }
 
       $.each(config.fields, function (name, options) {
         var input = "<div class='form-group'><label for='" + name + "'>" + options.label + (options.required ? ' <span class="text-danger">*</span>' : '') + "</label>";
@@ -104,6 +111,20 @@
 
         $("#fields").append(input);
       });
+
+      // Optional autofilling, not all providers will have details.
+      // Type is used to perform autofilling only for creating.
+      if (config.details.name && config.details.website) {
+        if (!provider.type)
+          autofillProvider(config.details);
+        else {
+          $("#provider").wrapAll("<div class='input-group' />")
+            .parent().append("<div class='input-group-append'><button class='btn btn-outline-secondary' type='button' onclick='autofillProvider(\"" + config.details.name + "\", \"provider\")'>Autofill</button></div>");
+          
+          $("#provider_url").wrapAll("<div class='input-group' />")
+            .parent().append("<div class='input-group-append'><button class='btn btn-outline-secondary' type='button' onclick='autofillProvider(\"" + config.details.website + "\", \"provider_url\")'>Autofill</button></div>");
+        }
+      }
     });
   }
 </script>

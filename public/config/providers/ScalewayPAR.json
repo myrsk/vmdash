@@ -1,0 +1,67 @@
+{
+    "details": {
+        "name": "Scaleway",
+        "website": "https://www.scaleway.com/"
+    },
+    "instructions": {
+        "title": "Adding a Scaleway Server",
+        "body": "<h5 class='card-title'>Follow the steps below:</h5><p><ul><li>Login to the Scaleway Control Panel</li><li>Click on your name or email in the upper right corner</li><li>Click on Credentials</li><hr><li>Click on the 'Create new token' button</li><li>You will be shown the Access and Secret Keys</li><li>Use this Access Key for the <b>Provider API Key</b> field</li><li>Use this Secret Key for the <b>Provider API Password</b> field</li><hr><li>Select 'Servers' from the left menu</li><li>Click on your server's name</li><li>On the overview page you will find an ID (e.g. fc730000-0000-0000-0000-00003c69afbb)</li><li>Use this ID for the <b>Provider Server ID</b> field (keep the -)</li></ul></p>"
+    },
+    "fields": {
+        "apiserverid": {
+            "type": "text",
+            "label": "Provider Server ID",
+            "required": true
+        },
+        "apikey": {
+            "type": "text",
+            "label": "Provider API Key",
+            "required": true
+        },
+        "apipass": {
+            "type": "text",
+            "label": "Provider API Password",
+            "required": true
+        },
+        "name": {
+            "type": "text",
+            "label": "Friendly Name",
+            "required": true
+        },
+        "hostname": {
+            "type": "text",
+            "label": "Hostname",
+            "required": true
+        },
+        "ipv4": {
+            "type": "text",
+            "label": "IPv4 Address",
+            "required": true
+        },
+        "sshport": {
+            "type": "text",
+            "label": "SSH Port",
+            "required": true
+        },
+        "provider": {
+            "type": "text",
+            "label": "Provider's Name",
+            "required": true
+        },
+        "provider_url": {
+            "type": "text",
+            "label": "Provider's Website URL",
+            "required": false
+        },
+        "location": {
+            "type": "countries",
+            "label": "Location",
+            "required": true
+        },
+        "sshkey": {
+            "type": "textarea",
+            "label": "SSH Private Key",
+            "required": false
+        }
+    }
+}

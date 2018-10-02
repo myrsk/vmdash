@@ -1,7 +1,11 @@
 {
+    "details": {
+        "name": "Scaleway",
+        "website": "https://www.scaleway.com/"
+    },
     "instructions": {
-        "title": "Adding a Hetzner Server",
-        "body": "<h5 class='card-title'>Follow the steps below:</h5><p class='card-text'><p><ul><li>Login to the Hetzner Cloud Console</li><li>Select a project</li><hr><li>Select a server</li><li>On the overview page you will find an ID (e.g. #810003)</li><li>Use this ID for the <b>Provider Server ID</b> field (without the #)</li><hr><li>Select 'Access' from the left menu</li><li>Select 'API Tokens' from the top menu</li><li>Generate an API Token</li><li>Use the API Token for the <b>Provider API Key</b> field</li></ul></p>"
+        "title": "Adding a Scaleway Server",
+        "body": "<h5 class='card-title'>Follow the steps below:</h5><p><ul><li>Login to the Scaleway Control Panel</li><li>Click on your name or email in the upper right corner</li><li>Click on Credentials</li><hr><li>Click on the 'Create new token' button</li><li>You will be shown the Access and Secret Keys</li><li>Use this Access Key for the <b>Provider API Key</b> field</li><li>Use this Secret Key for the <b>Provider API Password</b> field</li><hr><li>Select 'Servers' from the left menu</li><li>Click on your server's name</li><li>On the overview page you will find an ID (e.g. fc730000-0000-0000-0000-00003c69afbb)</li><li>Use this ID for the <b>Provider Server ID</b> field (keep the -)</li></ul></p>"
     },
     "fields": {
         "apiserverid": {
@@ -12,6 +16,11 @@
         "apikey": {
             "type": "text",
             "label": "Provider API Key",
+            "required": true
+        },
+        "apipass": {
+            "type": "text",
+            "label": "Provider API Password",
             "required": true
         },
         "name": {
@@ -36,12 +45,12 @@
         },
         "provider": {
             "type": "text",
-            "label": "Provider",
+            "label": "Provider's Name",
             "required": true
         },
         "provider_url": {
             "type": "text",
-            "label": "Provider's URL",
+            "label": "Provider's Website URL",
             "required": false
         },
         "location": {

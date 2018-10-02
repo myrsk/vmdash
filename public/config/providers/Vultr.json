@@ -1,4 +1,8 @@
 {
+    "details": {
+        "name": "Vultr",
+        "website": "https://www.vultr.com/"
+    },
     "instructions": {
         "title": "Adding a Vultr Server",
         "body": "<h5 class='card-title'>Follow the steps below:</h5><p><ul><li>Login to the Vultr Dashboard</li><li>Click on your name in the upper right corner</li><li>Click on API</li><hr><li>Click on the 'Enable API' button</li><li>Use the API Token for the <b>Provider API Key</b> field</li><li>Make sure you allow your IP (where vmDash is hosted) to have access</li><hr><li>Select 'Servers' from the left menu</li><li>Click on your server's name</li><li>Check the URL in the browser, you will find an ID (e.g. SUBID=13000089)</li><li>Use this ID for the <b>Provider Server ID</b> field (without the SUBID=)</li></ul></p>"
@@ -36,12 +40,12 @@
         },
         "provider": {
             "type": "text",
-            "label": "Provider",
+            "label": "Provider's Name",
             "required": true
         },
         "provider_url": {
             "type": "text",
-            "label": "Provider's URL",
+            "label": "Provider's Website URL",
             "required": false
         },
         "location": {

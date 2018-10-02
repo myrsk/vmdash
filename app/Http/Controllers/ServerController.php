@@ -58,8 +58,8 @@ class ServerController extends Controller
      */
     public function show($id)
     {
-        $item = Server::findOrFail($id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->getServer($id);
+        $server = Server::findOrFail($id);
+        $result = $this->getProviderLibrary($server->type)::getServer($id);
         
         if(isset($result['errormessage']))
         {
@@ -72,8 +72,8 @@ class ServerController extends Controller
     public function softReboot(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->softReboot($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::softReboot($request->id);
 
         return Response::json(array(
             //originally (isset($result['errormessage']))
@@ -88,8 +88,8 @@ class ServerController extends Controller
     public function hardReboot(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->hardReboot($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::hardReboot($request->id);
 
             return Response::json(array(
                 'success' => (isset($result['error'])) ? 'false' : 'true',
@@ -105,8 +105,8 @@ class ServerController extends Controller
     public function shutdown(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->shutdown($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::shutDown($request->id);
         
         return Response::json(array(
             'success' => (isset($result['error'])) ? 'false' : 'true',
@@ -120,8 +120,8 @@ class ServerController extends Controller
     public function poweron(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->poweron($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::powerOn($request->id);
 
         return Response::json(array(
             'success' => (isset($result['error'])) ? 'false' : 'true',
@@ -135,8 +135,8 @@ class ServerController extends Controller
     public function poweroff(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->poweroff($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::powerOff($request->id);
 
         return Response::json(array(
             'success' => (isset($result['error'])) ? 'false' : 'true',
@@ -150,8 +150,8 @@ class ServerController extends Controller
     public function enablerescue(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->enablerescue($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::enableRescue($request->id);
 
         return Response::json(array(
             'success' => (isset($result['error'])) ? 'false' : 'true',
@@ -166,8 +166,8 @@ class ServerController extends Controller
     public function disablerescue(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->disablerescue($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::disableRescue($request->id);
 
         return Response::json(array(
             'success' => (isset($result['error'])) ? 'false' : 'true',
@@ -183,8 +183,8 @@ class ServerController extends Controller
     public function rootpasswordreset(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->rootpasswordreset($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::resetRootPassword($request->id);
 
         return Response::json(array(
             'success' => (isset($result['error'])) ? 'false' : 'true',
@@ -200,8 +200,8 @@ class ServerController extends Controller
     public function reinstallos(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->reinstallos($request->id, $request->image);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::reinstallOs($request->id, $request->image);
 
 
         return Response::json(array(
@@ -216,8 +216,8 @@ class ServerController extends Controller
     public function attachiso(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->attachiso($request->id, $request->iso);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::attachIso($request->id, $request->iso);
 
 
         return Response::json(array(
@@ -232,8 +232,8 @@ class ServerController extends Controller
     public function removeiso(Request $request)
     {
         
-        $item = Server::findOrFail($request->id);
-        $result = app('\App\Http\Controllers\\'.$item->type)->removeiso($request->id);
+        $server = Server::findOrFail($request->id);
+        $result = $this->getProviderLibrary($server->type)::removeIso($request->id);
 
 
         return Response::json(array(
@@ -347,6 +347,12 @@ class ServerController extends Controller
         Server::destroy($id);
 
         return back()->withSuccess(trans('app.success_destroy')); 
+    }
+
+    public function getProviderLibrary($provider) {
+
+        return '\\App\\Libraries\\API\\' . $provider;
+        
     }
 }
 
