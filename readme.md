@@ -14,7 +14,7 @@ Will be added soon.
 |Vultr|✔|✔|✔| | | |✔|✔|✔|✔|
 |Scaleway (Paris)|✔|✔|✔| | | | | | | |
 |Scaleway (Amsterdam)|✔|✔|✔| | | | | | | |
-|Digital Ocean (Amsterdam)|✔|✔|✔| | | |✔| | | |
+|Digital Ocean|✔|✔|✔| | | |✔| | | |
 
 ## Roadmap (future releases)
 - Auto update functionality vmDash from Github releases
