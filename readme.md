@@ -13,6 +13,8 @@ Will be added soon.
 |Hetzner Cloud|✔|✔|✔|✔|✔|✔|✔|✔|✔| |
 |Vultr|✔|✔|✔| | | |✔|✔|✔|✔|
 |Scaleway (Paris)|✔|✔|✔| | | | | | | |
+|Scaleway (Amsterdam)|✔|✔|✔| | | | | | | |
+|Digital Ocean (Amsterdam)|✔|✔|✔| | | |✔| | | |
 
 ## Roadmap (future releases)
 - Auto update functionality vmDash from Github releases
